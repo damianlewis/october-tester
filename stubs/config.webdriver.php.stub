@@ -1,0 +1,10 @@
+<?php
+
+return [
+    'host'          => 'http://localhost:4444/wd/hub',
+    'baseUrl'       => env('APP_URL', '127.0.0.1'),
+    'chromeOptions' => [
+        '--disable-gpu',
+        '--window-size=1280,800'
+    ]
+];

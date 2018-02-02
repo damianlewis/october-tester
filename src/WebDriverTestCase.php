@@ -41,7 +41,7 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
      */
     protected function baseUrl()
     {
-        return config('selenium.baseUrl');
+        return config('webdriver.baseUrl');
     }
 
 }

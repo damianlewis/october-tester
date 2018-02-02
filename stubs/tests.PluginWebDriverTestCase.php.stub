@@ -15,10 +15,10 @@ abstract class PluginWebDriverTestCase extends DamianLewis\OctoberTesting\BasePl
      */
     protected function driver()
     {
-        $options = (new ChromeOptions())->addArguments(config('selenium.chromeOptions'));
+        $options = (new ChromeOptions())->addArguments(config('webdriver.chromeOptions'));
 
         return RemoteWebDriver::create(
-            config('selenium.host'), DesiredCapabilities::chrome()->setCapability(
+            config('webdriver.host'), DesiredCapabilities::chrome()->setCapability(
                 ChromeOptions::CAPABILITY, $options
             )
         );
