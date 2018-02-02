@@ -2,6 +2,7 @@
 
 namespace DamianLewis\OctoberTesting;
 
+use Mail;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
