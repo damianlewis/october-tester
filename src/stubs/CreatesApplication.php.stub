@@ -1,0 +1,39 @@
+<?php
+
+namespace Tests;
+
+trait CreatesApplication
+{
+
+    /**
+     * Creates the application.
+     *
+     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__ . '/../bootstrap/app.php';
+        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+        $app['cache']->setDefaultDriver('array');
+        $app->setLocale('en');
+
+        /*
+         * Store database in memory
+         */
+        $app['config']->set('database.default', 'sqlite');
+        $app['config']->set('database.connections.sqlite', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => ''
+        ]);
+
+        /*
+         * Modify the plugin path away from the test context
+         */
+        $app->setPluginsPath(realpath(base_path() . config('cms.pluginsPath')));
+
+        return $app;
+    }
+
+}

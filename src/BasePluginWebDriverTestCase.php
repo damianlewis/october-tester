@@ -5,9 +5,9 @@ namespace DamianLewis\OctoberTesting;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
-abstract class PluginWebDriverTestCase extends WebDriverTestCase
+abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
 {
-    use Concerns\OctoberTasks;
+    use Traits\OctoberTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.

@@ -6,8 +6,8 @@ use Illuminate\Support\Str;
 
 class Browser
 {
-    use Concerns\InteractsWithElements;
-    use Concerns\MakesAssertions;
+    use Traits\InteractsWithElements;
+    use Traits\MakesAssertions;
 
     /**
      * The base URL for all URLs.

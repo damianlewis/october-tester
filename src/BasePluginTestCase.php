@@ -2,12 +2,12 @@
 
 namespace DamianLewis\OctoberTesting;
 
-use System\Classes\UpdateManager;
 use System\Classes\PluginManager;
+use System\Classes\UpdateManager;
 
-abstract class PluginTestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class BasePluginTestCase extends Illuminate\Foundation\Testing\TestCase
 {
-    use Concerns\OctoberTasks;
+    use Traits\OctoberTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.

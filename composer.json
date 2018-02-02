@@ -1,6 +1,6 @@
 {
     "name": "damianlewis/octobertesting",
-    "description": "October Testing provides test cases for wotking with PHP Unit and web driver.",
+    "description": "October Testing provides test cases for working with PHP Unit and Laravel Dusk.",
     "license": "MIT",
     "authors": [
         {
@@ -11,14 +11,9 @@
     "require": {
         "php": ">=5.6.4",
         "facebook/webdriver": "~1.0",
-        "nesbot/carbon": "~1.20",
-        "illuminate/console": "~5.5",
-        "illuminate/support": "~5.5",
-        "symfony/console": "~3.2",
-        "symfony/process": "~3.2"
+        "illuminate/support": "~5.5"
     },
     "require-dev": {
-        "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0"
     },
     "autoload": {

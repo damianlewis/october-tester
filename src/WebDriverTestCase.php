@@ -7,7 +7,7 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 abstract class WebDriverTestCase extends Illuminate\Foundation\Testing\TestCase
 {
-    use Concerns\ProvidesBrowser;
+    use Traits\ProvidesBrowser;
 
     /**
      * Register the base URL and create a browser instance.

@@ -1,0 +1,28 @@
+<?php
+
+namespace Tests;
+
+use Facebook\WebDriver\Chrome\ChromeOptions;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
+
+abstract class PluginWebDriverTestCase extends DamianLewis\OctoberTesting\BasePluginWebDriverTestCase
+{
+    use CreatesApplication;
+
+    /**
+     * Create the RemoteWebDriver instance.
+     *
+     * @return \Facebook\WebDriver\Remote\RemoteWebDriver
+     */
+    protected function driver()
+    {
+        $options = (new ChromeOptions())->addArguments(config('selenium.chromeOptions'));
+
+        return RemoteWebDriver::create(
+            config('selenium.host'), DesiredCapabilities::chrome()->setCapability(
+                ChromeOptions::CAPABILITY, $options
+            )
+        );
+    }
+}

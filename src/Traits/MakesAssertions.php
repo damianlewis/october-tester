@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting\Concerns;
+namespace DamianLewis\OctoberTesting\Traits;
 
 use Illuminate\Support\Str;
 use PHPUnit\Framework\Assert as PHPUnit;
