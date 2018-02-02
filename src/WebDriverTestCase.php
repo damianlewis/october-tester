@@ -5,7 +5,7 @@ namespace DamianLewis\OctoberTesting;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 
-abstract class WebDriverTestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
 {
     use Traits\ProvidesBrowser;
 

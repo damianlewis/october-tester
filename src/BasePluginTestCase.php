@@ -5,7 +5,7 @@ namespace DamianLewis\OctoberTesting;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
-abstract class BasePluginTestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCase
 {
     use Traits\OctoberTasks;
 
