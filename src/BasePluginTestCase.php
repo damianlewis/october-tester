@@ -8,7 +8,7 @@ use System\Classes\UpdateManager;
 
 abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCase
 {
-    use Traits\OctoberTasks;
+    use Concerns\OctoberTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.

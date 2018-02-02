@@ -8,7 +8,7 @@ use System\Classes\UpdateManager;
 
 abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
 {
-    use Traits\OctoberTasks;
+    use Concerns\OctoberTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.

@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting\Traits;
+namespace DamianLewis\OctoberTesting\Concerns;
 
 use Closure;
 use Exception;
