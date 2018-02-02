@@ -21,6 +21,8 @@ abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
      * Perform test case set up.
      *
      * @return void
+     * @throws \Exception
+     * @throws \ReflectionException
      */
     public function setUp()
     {
@@ -60,6 +62,7 @@ abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
      * Flush event listeners and collect garbage.
      *
      * @return void
+     * @throws \ReflectionException
      */
     public function tearDown()
     {

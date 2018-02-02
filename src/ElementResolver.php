@@ -80,6 +80,7 @@ class ElementResolver
      * @param  string $field
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function resolveForTyping($field)
     {
@@ -100,6 +101,7 @@ class ElementResolver
      * @param  string $field
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function resolveForSelection($field)
     {
@@ -120,6 +122,7 @@ class ElementResolver
      * @param array  $values
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement[]
+     * @throws \Exception
      */
     public function resolveSelectOptions($field, array $values)
     {
@@ -142,6 +145,7 @@ class ElementResolver
      * @param  string $value
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function resolveForRadioSelection($field, $value = null)
     {
@@ -168,6 +172,7 @@ class ElementResolver
      * @param  string $value
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function resolveForChecking($field, $value = null)
     {
@@ -193,6 +198,7 @@ class ElementResolver
      * @param  string $field
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function resolveForAttachment($field)
     {
@@ -324,6 +330,7 @@ class ElementResolver
      * @param  array $selectors
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebElement
+     * @throws \Exception
      */
     public function firstOrFail($selectors)
     {

@@ -26,6 +26,7 @@ trait OctoberTasks
      * loaded in the system before proceeding to migrate it.
      *
      * @return void
+     * @throws \Exception
      */
     protected function runPluginRefreshCommand($code, $throwException = true)
     {
@@ -84,6 +85,7 @@ trait OctoberTasks
      * @param string $code
      *
      * @return \System\Classes\PluginBase
+     * @throws \ReflectionException
      */
     protected function getPluginObject($code = null)
     {
@@ -102,6 +104,7 @@ trait OctoberTasks
      * Pivot models are an exception since they are internally managed.
      *
      * @return void
+     * @throws \ReflectionException
      */
     protected function flushModelEventListeners()
     {
@@ -129,6 +132,7 @@ trait OctoberTasks
      * Locates the plugin code based on the test file location.
      *
      * @return string|bool
+     * @throws \ReflectionException
      */
     protected function guessPluginCodeFromTest()
     {
