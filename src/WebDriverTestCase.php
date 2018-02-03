@@ -2,6 +2,8 @@
 
 namespace DamianLewis\OctoberTesting;
 
+use BackendAuth;
+use Exception;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 
@@ -19,7 +21,12 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
         parent::setUp();
 
         Browser::$baseUrl = $this->baseUrl();
+
         Browser::$storeScreenshotsAt = base_path('tests/screenshots');
+
+        Browser::$userResolver = function () {
+            return $this->user();
+        };
     }
 
     /**
@@ -42,6 +49,17 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
     protected function baseUrl()
     {
         return config('webdriver.baseUrl');
+    }
+
+    /**
+     * Get a callback that returns the default user to authenticate.
+     *
+     * @return \Closure
+     * @throws \Exception
+     */
+    protected function user()
+    {
+        throw new Exception("User resolver has not been set.");
     }
 
 }

@@ -24,6 +24,13 @@ class Browser
     public static $storeScreenshotsAt;
 
     /**
+     * Get the callback which resolves the default user to authenticate.
+     *
+     * @var \Closure
+     */
+    public static $userResolver;
+
+    /**
      * The RemoteWebDriver instance.
      *
      * @var \Facebook\WebDriver\Remote\RemoteWebDriver
@@ -41,7 +48,7 @@ class Browser
      * Create a browser instance.
      *
      * @param  \Facebook\WebDriver\Remote\RemoteWebDriver $driver
-     * @param  ElementResolver  $resolver
+     * @param  ElementResolver                            $resolver
      *
      * @return void
      */
@@ -58,7 +65,7 @@ class Browser
      *
      * @param  string $url
      *
-     * @return \DamianLewis\OctoberTesting\Browser
+     * @return $this
      */
     public function visit($url)
     {
@@ -76,7 +83,7 @@ class Browser
      *
      * @param  string $name
      *
-     * @return \DamianLewis\OctoberTesting\Browser
+     * @return $this
      */
     public function screenshot($name)
     {
@@ -95,7 +102,7 @@ class Browser
     public function ensurejQueryIsAvailable()
     {
         if ($this->driver->executeScript("return window.jQuery == null")) {
-            $this->driver->executeScript(file_get_contents(__DIR__.'/../bin/jquery.js'));
+            $this->driver->executeScript(file_get_contents(__DIR__ . '/../bin/jquery.js'));
         }
     }
 
