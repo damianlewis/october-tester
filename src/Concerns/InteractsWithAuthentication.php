@@ -2,6 +2,7 @@
 
 namespace DamianLewis\OctoberTesting\Concerns;
 
+use BackendAuth;
 use DamianLewis\OctoberTesting\Browser;
 use October\Rain\Auth\Models\User;
 
