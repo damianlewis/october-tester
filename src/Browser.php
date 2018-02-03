@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 
 class Browser
 {
+    use Concerns\InteractsWithAuthentication;
     use Concerns\InteractsWithElements;
     use Concerns\MakesAssertions;
 
