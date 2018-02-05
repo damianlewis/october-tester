@@ -9,6 +9,7 @@ use System\Classes\UpdateManager;
 abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCase
 {
     use Concerns\OctoberTasks;
+    use Concerns\EnvTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.
@@ -26,6 +27,15 @@ abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCas
      */
     public function setUp()
     {
+        /*
+         * Switch to the testing environment
+         */
+        if (file_exists(base_path($this->envTestingFile()))) {
+            if (file_get_contents(base_path('.env')) !== file_get_contents(base_path($this->envTestingFile()))) {
+                $this->switchEnvironment();
+            }
+        }
+
         /*
          * Force reload of October singletons
          */
@@ -69,6 +79,13 @@ abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCas
         $this->flushModelEventListeners();
         parent::tearDown();
         unset($this->app);
+
+        /*
+         * Restore environment
+         */
+        if (file_exists(base_path($this->envTestingFile())) && file_exists(base_path('.env.backup'))) {
+            $this->restoreEnvironment();
+        }
     }
 
 }

@@ -17,16 +17,6 @@ trait CreatesApplication
         $app->setLocale('en');
 
         /*
-         * Store database in memory
-         */
-        $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => ''
-        ]);
-
-        /*
          * Modify the plugin path away from the test context
          */
         $app->setPluginsPath(realpath(base_path() . config('cms.pluginsPath')));
