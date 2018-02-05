@@ -4,6 +4,7 @@ namespace DamianLewis\OctoberTesting\Concerns;
 
 use BackendAuth;
 use DamianLewis\OctoberTesting\Browser;
+use October\Rain\Auth\AuthException;
 use October\Rain\Auth\Models\User;
 
 
@@ -16,23 +17,26 @@ trait InteractsWithAuthentication
      */
     public function login()
     {
-        return $this->loginAs(call_user_func(Browser::$userResolver));
+        return $this->loginAs(call_user_func(Browser::$userCredentialsResolver));
     }
 
     /**
-     * Log into the application using a given user ID or email.
+     * Log into the application using the given user credentials.
      *
-     * @param  object|string $user
+     * @param  array $userCredentials Array containing the user login and password to authenticate.
      *
      * @return $this
      */
-    public function loginAs($user)
+    public function loginAs($userCredentials)
     {
-        $user = is_a($user, User::class) ? $user : $this->getUserByLogin($user);
+        if (!is_array($userCredentials)) {
+            throw new AuthException('An array containing the login and password for a user is required.');
+        }
 
-        BackendAuth::login($user);
-
-        return $this;
+        return $this->visit('/backend')
+            ->type('login', $userCredentials['login'])
+            ->type('password', $userCredentials['password'])
+            ->press('Login');
     }
 
     /**
@@ -43,18 +47,6 @@ trait InteractsWithAuthentication
     public function logout()
     {
         return $this->visit('/backend/auth/signout');
-    }
-
-    /**
-     * Finds a user by the login username.
-     *
-     * @param string $username
-     *
-     * @return \October\Rain\Auth\Models\User|null
-     */
-    protected function getUserByLogin($username)
-    {
-        return BackendAuth::findUserByLogin($username);
     }
 
 }

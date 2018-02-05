@@ -24,8 +24,8 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
 
         Browser::$storeScreenshotsAt = base_path('tests/screenshots');
 
-        Browser::$userResolver = function () {
-            return $this->user();
+        Browser::$userCredentialsResolver = function () {
+            return $this->getUserCredentials();
         };
     }
 
@@ -52,14 +52,14 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
     }
 
     /**
-     * Get a callback that returns the default user to authenticate.
+     * Get a callback that returns the default user credentials to authenticate.
      *
      * @return \Closure
      * @throws \Exception
      */
-    protected function user()
+    protected function getUserCredentials()
     {
-        throw new Exception("User resolver has not been set.");
+        throw new Exception("User credentials resolver has not been set.");
     }
 
 }

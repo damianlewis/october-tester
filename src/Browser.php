@@ -29,7 +29,7 @@ class Browser
      *
      * @var \Closure
      */
-    public static $userResolver;
+    public static $userCredentialsResolver;
 
     /**
      * The RemoteWebDriver instance.
