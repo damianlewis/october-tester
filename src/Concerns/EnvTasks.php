@@ -35,10 +35,6 @@ trait EnvTasks
      */
     protected function envTestingFile()
     {
-        if (file_exists(base_path($file = '.env.testing.' . $this->laravel->environment()))) {
-            return $file;
-        }
-
         return '.env.testing';
     }
 }
