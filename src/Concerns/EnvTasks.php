@@ -2,6 +2,8 @@
 
 namespace DamianLewis\OctoberTesting\Concerns;
 
+use Dotenv\Dotenv;
+
 trait EnvTasks
 {
     /**
@@ -26,6 +28,16 @@ trait EnvTasks
         copy(base_path('.env.backup'), base_path('.env'));
 
         unlink(base_path('.env.backup'));
+    }
+
+    /**
+     * Refresh the current environment variables.
+     *
+     * @return void
+     */
+    protected function refreshEnvironment()
+    {
+        (new Dotenv(base_path()))->overload();
     }
 
     /**

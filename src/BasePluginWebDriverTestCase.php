@@ -28,15 +28,6 @@ abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
     public function setUp()
     {
         /*
-         * Switch to the testing environment
-         */
-        if (file_exists(base_path($this->envTestingFile()))) {
-            if (file_get_contents(base_path('.env')) !== file_get_contents(base_path($this->envTestingFile()))) {
-                $this->switchEnvironment();
-            }
-        }
-
-        /*
          * Force reload of October singletons
          */
         PluginManager::forgetInstance();
@@ -46,6 +37,17 @@ abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
          * Create application instance
          */
         parent::setUp();
+
+        /*
+         * Switch to the testing environment
+         */
+        if (file_exists(base_path($this->envTestingFile()))) {
+            if (file_get_contents(base_path('.env')) !== file_get_contents(base_path($this->envTestingFile()))) {
+                $this->switchEnvironment();
+            }
+
+            $this->refreshEnvironment();
+        }
 
         /*
          * Ensure system is up to date
