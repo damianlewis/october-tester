@@ -6,6 +6,7 @@ use BackendAuth;
 use Exception;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Symfony\Component\Finder\Finder;
 
 abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
 {
@@ -27,6 +28,8 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
         Browser::$userCredentialsResolver = function () {
             return $this->getUserCredentials();
         };
+
+        $this->purgeScreenshots();
     }
 
     /**
@@ -60,6 +63,22 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
     protected function getUserCredentials()
     {
         throw new Exception("User credentials resolver has not been set.");
+    }
+
+    /**
+     * Purge the failure screenshots
+     *
+     * @return void
+     */
+    protected function purgeScreenshots()
+    {
+        $files = Finder::create()->files()
+            ->in(Browser::$storeScreenshotsAt)
+            ->name('failure-*');
+
+        foreach ($files as $file) {
+            @unlink($file->getRealPath());
+        }
     }
 
 }
