@@ -151,6 +151,38 @@ class Browser
     }
 
     /**
+     * Execute a Closure with a scoped browser instance.
+     *
+     * @param  string   $selector
+     * @param  \Closure $callback
+     *
+     * @return $this
+     */
+    public function within($selector, Closure $callback)
+    {
+        return $this->with($selector, $callback);
+    }
+
+    /**
+     * Execute a Closure with a scoped browser instance.
+     *
+     * @param  string   $selector
+     * @param  \Closure $callback
+     *
+     * @return $this
+     */
+    public function with($selector, Closure $callback)
+    {
+        $browser = new static(
+            $this->driver, new ElementResolver($this->driver, $this->resolver->format($selector))
+        );
+
+        call_user_func($callback, $browser);
+
+        return $this;
+    }
+
+    /**
      * Ensure that jQuery is available on the page.
      *
      * @return void
