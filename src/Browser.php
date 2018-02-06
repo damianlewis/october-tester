@@ -196,6 +196,20 @@ class Browser
     }
 
     /**
+     * Pause for the given amount of milliseconds.
+     *
+     * @param  int $milliseconds
+     *
+     * @return $this
+     */
+    public function pause($milliseconds)
+    {
+        usleep($milliseconds * 1000);
+
+        return $this;
+    }
+
+    /**
      * Close the browser.
      *
      * @return void
