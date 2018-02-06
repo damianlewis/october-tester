@@ -2,7 +2,9 @@
 
 namespace DamianLewis\OctoberTesting;
 
+use Closure;
 use Illuminate\Support\Str;
+use Facebook\WebDriver\WebDriverDimension;
 
 class Browser
 {
@@ -75,6 +77,59 @@ class Browser
         }
 
         $this->driver->navigate()->to($url);
+
+        return $this;
+    }
+
+    /**
+     * Refresh the page.
+     *
+     * @return $this
+     */
+    public function refresh()
+    {
+        $this->driver->navigate()->refresh();
+
+        return $this;
+    }
+
+    /**
+     * Navigate to the previous page.
+     *
+     * @return $this
+     */
+    public function back()
+    {
+        $this->driver->navigate()->back();
+
+        return $this;
+    }
+
+    /**
+     * Maximize the browser window.
+     *
+     * @return $this
+     */
+    public function maximize()
+    {
+        $this->driver->manage()->window()->maximize();
+
+        return $this;
+    }
+
+    /**
+     * Resize the browser window.
+     *
+     * @param  int $width
+     * @param  int $height
+     *
+     * @return $this
+     */
+    public function resize($width, $height)
+    {
+        $this->driver->manage()->window()->setSize(
+            new WebDriverDimension($width, $height)
+        );
 
         return $this;
     }
