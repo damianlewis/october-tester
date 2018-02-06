@@ -11,6 +11,7 @@ class Browser
     use Concerns\InteractsWithAuthentication;
     use Concerns\InteractsWithElements;
     use Concerns\MakesAssertions;
+    use Concerns\WaitsForElements;
 
     /**
      * The base URL for all URLs.
