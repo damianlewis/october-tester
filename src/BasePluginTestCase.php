@@ -71,6 +71,22 @@ abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCas
     }
 
     /**
+     * Boot the testing helper traits.
+     *
+     * @return array
+     */
+    protected function setUpTraits()
+    {
+        $uses = parent::setUpTraits();
+
+        if (isset($uses[RefreshOctoberDatabase::class])) {
+            $this->refreshDatabase();
+        }
+
+        return $uses;
+    }
+
+    /**
      * Flush event listeners and collect garbage.
      *
      * @return void
