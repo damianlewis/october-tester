@@ -11,23 +11,23 @@ use October\Rain\Auth\Models\User;
 trait InteractsWithAuthentication
 {
     /**
-     * Log into the application as the default user.
+     * Log into the application with the default user credentials.
      *
      * @return $this
      */
     public function login()
     {
-        return $this->loginAs(call_user_func(Browser::$userCredentialsResolver));
+        return $this->loginWith(call_user_func(Browser::$userCredentialsResolver));
     }
 
     /**
-     * Log into the application using the given user credentials.
+     * Log into the application with the user credentials.
      *
      * @param  array $userCredentials Array containing the user login and password to authenticate.
      *
      * @return $this
      */
-    public function loginAs($userCredentials)
+    public function loginWith($userCredentials)
     {
         if (!is_array($userCredentials)) {
             throw new AuthException('An array containing the login and password for a user is required.');
