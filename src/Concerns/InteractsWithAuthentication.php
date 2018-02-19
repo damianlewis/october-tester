@@ -7,7 +7,6 @@ use DamianLewis\OctoberTesting\Browser;
 use October\Rain\Auth\AuthException;
 use October\Rain\Auth\Models\User;
 
-
 trait InteractsWithAuthentication
 {
     /**
