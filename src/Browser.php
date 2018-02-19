@@ -9,6 +9,7 @@ use Facebook\WebDriver\WebDriverDimension;
 class Browser
 {
     use Concerns\InteractsWithAuthentication;
+    use Concerns\InteractsWithCookies;
     use Concerns\InteractsWithElements;
     use Concerns\MakesAssertions;
     use Concerns\WaitsForElements;
