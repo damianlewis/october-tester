@@ -76,7 +76,7 @@ trait ProvidesBrowser
 
             throw $e;
         } finally {
-//            $this->storeConsoleLogsFor($browsers);
+            $this->storeConsoleLogsFor($browsers);
 
             static::$browsers = $this->closeAllButPrimary($browsers);
         }

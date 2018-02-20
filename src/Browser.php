@@ -5,6 +5,8 @@ namespace DamianLewis\OctoberTesting;
 use Closure;
 use Illuminate\Support\Str;
 use Facebook\WebDriver\WebDriverDimension;
+use Facebook\WebDriver\Remote\WebDriverBrowserType;
+
 
 class Browser
 {
@@ -27,6 +29,24 @@ class Browser
      * @var string
      */
     public static $storeScreenshotsAt;
+
+    /**
+     * The directory that will contain any console logs.
+     *
+     * @var string
+     */
+    public static $storeConsoleLogAt;
+
+    /**
+     * The browsers that support retrieving logs.
+     *
+     * @var array
+     */
+    public static $supportsRemoteLogs = [
+        WebDriverBrowserType::CHROME,
+        WebDriverBrowserType::SAFARI,
+        WebDriverBrowserType::PHANTOMJS,
+    ];
 
     /**
      * Get the callback which resolves the default user to authenticate.
@@ -155,6 +175,28 @@ class Browser
         $this->driver->takeScreenshot(
             sprintf('%s/%s.png', rtrim(static::$storeScreenshotsAt, '/'), $name)
         );
+
+        return $this;
+    }
+
+    /**
+     * Store the console output with the given name.
+     *
+     * @param  string  $name
+     * @return $this
+     */
+    public function storeConsoleLog($name)
+    {
+        if (in_array($this->driver->getCapabilities()->getBrowserName(), static::$supportsRemoteLogs)) {
+            $console = $this->driver->manage()->getLog('browser');
+
+            if (!empty($console)) {
+                file_put_contents(
+                    sprintf('%s/%s.log', rtrim(static::$storeConsoleLogAt, '/'), $name)
+                    , json_encode($console, JSON_PRETTY_PRINT)
+                );
+            }
+        }
 
         return $this;
     }
