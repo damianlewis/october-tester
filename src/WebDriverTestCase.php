@@ -32,6 +32,7 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
         };
 
         $this->purgeScreenshots();
+        $this->purgeLogs();
     }
 
     /**
@@ -77,6 +78,22 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
         $files = Finder::create()->files()
             ->in(Browser::$storeScreenshotsAt)
             ->name('failure-*');
+
+        foreach ($files as $file) {
+            @unlink($file->getRealPath());
+        }
+    }
+
+    /**
+     * Purge the failure logs
+     *
+     * @return void
+     */
+    protected function purgeLogs()
+    {
+        $files = Finder::create()->files()
+            ->in(Browser::$storeConsoleLogAt)
+            ->name('*.log');
 
         foreach ($files as $file) {
             @unlink($file->getRealPath());
