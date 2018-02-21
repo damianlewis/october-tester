@@ -96,7 +96,7 @@ trait MakesOctoberAssertions
 
         PHPUnit::assertTrue(
             $this->resolver->findOrFail($selector)->isDisplayed(),
-            "${$messageFragment} [{$fullSelector}] is not visible."
+            "${messageFragment} [{$fullSelector}] is not visible."
         );
 
         return $this;
@@ -120,7 +120,7 @@ trait MakesOctoberAssertions
             $missing = true;
         }
 
-        PHPUnit::assertTrue($missing, "Saw unexpected ${$messageFragment} [{$fullSelector}].");
+        PHPUnit::assertTrue($missing, "Saw unexpected ${messageFragment} [{$fullSelector}].");
 
         return $this;
     }
