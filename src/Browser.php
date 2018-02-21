@@ -15,6 +15,7 @@ class Browser
     use Concerns\InteractsWithElements;
     use Concerns\InteractsWithOctober;
     use Concerns\MakesAssertions;
+    use Concerns\MakesOctoberAssertions;
     use Concerns\WaitsForElements;
 
     /**

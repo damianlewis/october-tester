@@ -8,18 +8,6 @@ use DamianLewis\OctoberTesting\Browser;
 trait InteractsWithOctober
 {
     /**
-     * Execute a Closure within a breadcrumb component.
-     *
-     * @param Closure $callback
-     *
-     * @return $this
-     */
-    public function withinBreadcrumb(Closure $callback)
-    {
-        return $this->with('.control-breadcrumb', $callback);
-    }
-
-    /**
      * Execute a Closure within a primary form tab.
      *
      * @param string  $tab
