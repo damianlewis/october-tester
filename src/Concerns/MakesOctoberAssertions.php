@@ -2,11 +2,24 @@
 
 namespace DamianLewis\OctoberTesting\Concerns;
 
-use PHPUnit\Framework\Assert as PHPUnit;
-use Facebook\WebDriver\Exception\NoSuchElementException;
-
 trait MakesOctoberAssertions
 {
+    /**
+     * Assert that the given text appears within the given form group.
+     *
+     * @param string $name
+     * @param string $text
+     *
+     * @return $this
+     */
+    public function assertSeeInFormGroup($name, $text)
+    {
+        return $this->assertSeeIn(
+            $this->getFormGroupSelector($name),
+            $text
+        );
+    }
+
     /**
      * Assert that the form group with the given name is visible.
      *
@@ -16,7 +29,9 @@ trait MakesOctoberAssertions
      */
     public function assertFormGroupVisible($name)
     {
-        return $this->assertFormElementVisible(".form-group[data-field-name='${name}']", 'Form field');
+        return $this->assertVisible(
+            $this->getFormGroupSelector($name)
+        );
     }
 
     /**
@@ -28,8 +43,11 @@ trait MakesOctoberAssertions
      */
     public function assertFormGroupMissing($name)
     {
-        return $this->assertFormElementMissing(".form-group[data-field-name='${name}']", 'form field');
+        return $this->assertMissing(
+            $this->getFormGroupSelector($name)
+        );
     }
+
     /**
      * Assert that the form field with the given type and name is visible.
      *
@@ -40,7 +58,9 @@ trait MakesOctoberAssertions
      */
     public function assertFormFieldVisible($type, $name)
     {
-        return $this->assertFormElementVisible(".${type}-field[data-field-name='${name}']", 'Form field');
+        return $this->assertVisible(
+            $this->getFormFieldSelector($type, $name)
+        );
     }
 
     /**
@@ -53,7 +73,9 @@ trait MakesOctoberAssertions
      */
     public function assertFormFieldMissing($type, $name)
     {
-        return $this->assertFormElementMissing(".${type}-field[data-field-name='${name}']", 'form field');
+        return $this->assertMissing(
+            $this->getFormFieldSelector($type, $name)
+        );
     }
 
     /**
@@ -66,7 +88,9 @@ trait MakesOctoberAssertions
      */
     public function assertFormWidgetVisible($type, $name)
     {
-        return $this->assertFormElementVisible("[data-field-name='${name}'] [data-control='${type}']", 'Form widget');
+        return $this->assertVisible(
+            $this->getFormWidgetSelector($type, $name)
+        );
     }
 
     /**
@@ -79,49 +103,46 @@ trait MakesOctoberAssertions
      */
     public function assertFormWidgetMissing($type, $name)
     {
-        return $this->assertFormElementMissing("[data-field-name='${name}'] [data-control='${type}']", 'form widget');
-    }
-
-    /**
-     * Assert that the form element with the given selector is visible.
-     *
-     * @param string $selector
-     * @param string $messageFragment
-     *
-     * @return $this
-     */
-    public function assertFormElementVisible($selector, $messageFragment)
-    {
-        $fullSelector = $this->resolver->format($selector);
-
-        PHPUnit::assertTrue(
-            $this->resolver->findOrFail($selector)->isDisplayed(),
-            "${messageFragment} [{$fullSelector}] is not visible."
+        return $this->assertMissing(
+            $this->getFormWidgetSelector($type, $name)
         );
-
-        return $this;
     }
 
     /**
-     * Assert that the element with the given selector is not on the page.
+     *  Get the css selector to select a form group.
      *
-     * @param string $selector
-     * @param string $messageFragment
+     * @param $name
      *
-     * @return $this
+     * @return string
      */
-    public function assertFormElementMissing($selector, $messageFragment)
+    protected function getFormGroupSelector($name)
     {
-        $fullSelector = $this->resolver->format($selector);
+        return ".form-group[data-field-name='${name}']";
+    }
 
-        try {
-            $missing = !$this->resolver->findOrFail($selector)->isDisplayed();
-        } catch (NoSuchElementException $e) {
-            $missing = true;
-        }
+    /**
+     * Get the css selector to select a form field.
+     *
+     * @param $type
+     * @param $name
+     *
+     * @return string
+     */
+    protected function getFormFieldSelector($type, $name)
+    {
+        return ".${type}-field[data-field-name='${name}']";
+    }
 
-        PHPUnit::assertTrue($missing, "Saw unexpected ${messageFragment} [{$fullSelector}].");
-
-        return $this;
+    /**
+     * Get the css selector to select a form widget.
+     *
+     * @param $type
+     * @param $name
+     *
+     * @return string
+     */
+    protected function getFormWidgetSelector($type, $name)
+    {
+        return "[data-field-name='${name}'] [data-control='${type}']";
     }
 }
