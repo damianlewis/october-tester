@@ -13,6 +13,7 @@ class Browser
     use Concerns\InteractsWithAuthentication;
     use Concerns\InteractsWithCookies;
     use Concerns\InteractsWithElements;
+    use Concerns\InteractsWithOctober;
     use Concerns\MakesAssertions;
     use Concerns\WaitsForElements;
 
@@ -182,7 +183,8 @@ class Browser
     /**
      * Store the console output with the given name.
      *
-     * @param  string  $name
+     * @param  string $name
+     *
      * @return $this
      */
     public function storeConsoleLog($name)
