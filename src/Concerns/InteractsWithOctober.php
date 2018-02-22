@@ -17,7 +17,7 @@ trait InteractsWithOctober
      */
     public function withinList($list, Closure $callback)
     {
-        return $this->within($this->getListSelector() . "${list} table", $callback);
+        return $this->within($this->getListSelector($list) . ' table', $callback);
     }
 
     /**

@@ -7,11 +7,13 @@ trait SelectorsForOctober
     /**
      * Get the css selector to select a list widget.
      *
+     * @param null|string $id
+     *
      * @return string
      */
-    public function getListSelector()
+    public function getListSelector($id = null)
     {
-        return '.list-widget';
+        return '.list-widget' . $id ? $id : '' . "[data-control='listwidget']";
     }
 
     /**
@@ -51,7 +53,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    public function getTableHeaderSelector($column = null)
+    public function getTableHeaderSelector($column)
     {
         if (is_int($column)) {
             return "th[class*='cell-index-${column}']";
@@ -69,7 +71,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    public function getTableDataSelector($column = null)
+    public function getTableDataSelector($column)
     {
         if (is_int($column)) {
             return "td[class*='cell-index-${column}']";
@@ -85,17 +87,17 @@ trait SelectorsForOctober
      *
      * @param string $name
      *
-     * @return string The css selector.
+     * @return string
      */
     public function getFilterSelector($name)
     {
-        return ".filter-scope[data-scope-name='${name}']";
+        return "[data-control='filterwidget'] [data-scope-name='${name}']";
     }
 
     /**
      * Get the css selector to select the filter items.
      *
-     * @return string The css selector.
+     * @return string
      */
     public function getFilterItemSelector()
     {
@@ -103,19 +105,9 @@ trait SelectorsForOctober
     }
 
     /**
-     * Get the css selector to select the filter links.
-     *
-     * @return string The css selector.
-     */
-    public function getFilterLinkSelector()
-    {
-        return $this->getFilterItemSelector() . ' a';
-    }
-
-    /**
      * Get the css selector to select the primary tab.
      *
-     * @return string The css selector.
+     * @return string
      */
     public function getPrimaryTabsSelector()
     {
@@ -125,7 +117,7 @@ trait SelectorsForOctober
     /**
      * Get the css selector to select the navigation tabs.
      *
-     * @return string The css selector.
+     * @return string
      */
     public function getNavigationTabsSelector()
     {
@@ -135,7 +127,7 @@ trait SelectorsForOctober
     /**
      * Get the css selector to select the tab content.
      *
-     * @return string The css selector.
+     * @return string
      */
     public function getTabContentSelector()
     {
