@@ -8,6 +8,19 @@ use DamianLewis\OctoberTesting\Browser;
 trait InteractsWithOctober
 {
     /**
+     * Execute a Closure within a list widget.
+     *
+     * @param string  $list
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinList($list, Closure $callback)
+    {
+        return $this->within($this->getListSelector() . "${list} table", $callback);
+    }
+
+    /**
      * Execute a Closure within a primary form tab.
      *
      * @param string  $tab
@@ -17,7 +30,7 @@ trait InteractsWithOctober
      */
     public function withinPrimaryTab($tab, Closure $callback)
     {
-        return $this->withinTab('.primary-tabs', $tab, $callback);
+        return $this->withinTab($this->getPrimaryTabsSelector(), $tab, $callback);
     }
 
     /**
@@ -32,10 +45,10 @@ trait InteractsWithOctober
     public function withinTab($type, $tab, Closure $callback)
     {
         return $this->with($type, function (Browser $tabs) use ($tab, $callback) {
-            $tabId = $tabs->attribute(".nav-tabs a[title='${tab}']", 'data-target');
+            $tabId = $tabs->attribute($this->getNavigationTabsSelector() . " a[title='${tab}']", 'data-target');
 
-            $tabs->click(".nav-tabs a[title='${tab}']")
-                ->within(".tab-content ${tabId}", $callback);
+            $tabs->click($this->getNavigationTabsSelector() . " a[title='${tab}']")
+                ->within($this->getTabContentSelector() . " ${tabId}", $callback);
         });
     }
 }

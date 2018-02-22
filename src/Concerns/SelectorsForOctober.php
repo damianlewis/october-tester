@@ -4,61 +4,14 @@ namespace DamianLewis\OctoberTesting\Concerns;
 
 trait SelectorsForOctober
 {
-
     /**
-     * Get the css selector to select a list widget header.
+     * Get the css selector to select a list widget.
      *
      * @return string
      */
-    public function getListHeaderSelector()
+    public function getListSelector()
     {
-        return '#Lists table thead';
-    }
-
-    /**
-     * Get the css selector to select a list widget header cell.
-     *
-     * @param int|string $column
-     *
-     * @return string
-     */
-    public function getListHeaderCellSelector($column)
-    {
-        return $this->getListHeaderSelector() . ' ' . $this->getTableHeaderSelector($column);
-    }
-
-    /**
-     * Get the css selector to select a list widget body.
-     *
-     * @return string
-     */
-    public function getListBodySelector()
-    {
-        return '#Lists table tbody';
-    }
-
-    /**
-     * Get the css selector to select the a list widget body column.
-     *
-     * @param int|string $column
-     *
-     * @return string
-     */
-    public function getListBodyColumnSelector($column)
-    {
-        return $this->getListBodySelector() . ' ' . $this->getTableDataSelector($column);
-    }
-
-    /**
-     * Get the css selector to select a list widget body row.
-     *
-     * @param string $row
-     *
-     * @return string
-     */
-    public function getListBodyRowSelector($row = null)
-    {
-        return $this->getListBodySelector() . $row ? " tr${row}" : ' tr';
+        return '.list-widget';
     }
 
     /**
@@ -68,7 +21,7 @@ trait SelectorsForOctober
      */
     public function getListPaginationSelector()
     {
-        return '#Lists .list-pagination';
+        return '.list-pagination';
     }
 
     /**
@@ -157,6 +110,36 @@ trait SelectorsForOctober
     public function getFilterLinkSelector()
     {
         return $this->getFilterItemSelector() . ' a';
+    }
+
+    /**
+     * Get the css selector to select the primary tab.
+     *
+     * @return string The css selector.
+     */
+    public function getPrimaryTabsSelector()
+    {
+        return '.primary-tabs';
+    }
+
+    /**
+     * Get the css selector to select the navigation tabs.
+     *
+     * @return string The css selector.
+     */
+    public function getNavigationTabsSelector()
+    {
+        return '.nav-tabs';
+    }
+
+    /**
+     * Get the css selector to select the tab content.
+     *
+     * @return string The css selector.
+     */
+    public function getTabContentSelector()
+    {
+        return '.tab-content';
     }
 
     /**
