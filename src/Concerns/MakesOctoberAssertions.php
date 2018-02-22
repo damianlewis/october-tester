@@ -115,7 +115,7 @@ trait MakesOctoberAssertions
      *
      * @return string
      */
-    protected function getFormGroupSelector($name)
+    private function getFormGroupSelector($name)
     {
         return ".form-group[data-field-name='${name}']";
     }
@@ -128,7 +128,7 @@ trait MakesOctoberAssertions
      *
      * @return string
      */
-    protected function getFormFieldSelector($type, $name)
+    private function getFormFieldSelector($type, $name)
     {
         return ".${type}-field[data-field-name='${name}']";
     }
@@ -141,7 +141,7 @@ trait MakesOctoberAssertions
      *
      * @return string
      */
-    protected function getFormWidgetSelector($type, $name)
+    private function getFormWidgetSelector($type, $name)
     {
         return "[data-field-name='${name}'] [data-control='${type}']";
     }
