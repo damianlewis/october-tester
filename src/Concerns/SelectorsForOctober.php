@@ -202,7 +202,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getBreadcrumbSelector()
+    public function getBreadcrumbSelector()
     {
         return '.control-breadcrumb';
     }
@@ -212,7 +212,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getFormPreviewSelector()
+    public function getFormPreviewSelector()
     {
         return '.form-preview';
     }
@@ -222,7 +222,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getTrashButtonSelector()
+    public function getTrashButtonSelector()
     {
         return '.form-buttons .oc-icon-trash-o';
     }
@@ -232,7 +232,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getFlashMessageSelector()
+    public function getFlashMessageSelector()
     {
         return 'p.flash-message';
     }
@@ -242,7 +242,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getPopupModalSelector()
+    public function getPopupModalSelector()
     {
         return '.sweet-alert';
     }
@@ -252,7 +252,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    protected function getStripeLoadingIndicatorSelector()
+    public function getStripeLoadingIndicatorSelector()
     {
         return '.stripe-loading-indicator';
     }
