@@ -107,42 +107,4 @@ trait MakesOctoberAssertions
             $this->getFormWidgetSelector($type, $name)
         );
     }
-
-    /**
-     *  Get the css selector to select a form group.
-     *
-     * @param $name
-     *
-     * @return string
-     */
-    private function getFormGroupSelector($name)
-    {
-        return ".form-group[data-field-name='${name}']";
-    }
-
-    /**
-     * Get the css selector to select a form field.
-     *
-     * @param $type
-     * @param $name
-     *
-     * @return string
-     */
-    private function getFormFieldSelector($type, $name)
-    {
-        return ".${type}-field[data-field-name='${name}']";
-    }
-
-    /**
-     * Get the css selector to select a form widget.
-     *
-     * @param $type
-     * @param $name
-     *
-     * @return string
-     */
-    private function getFormWidgetSelector($type, $name)
-    {
-        return "[data-field-name='${name}'] [data-control='${type}']";
-    }
 }
