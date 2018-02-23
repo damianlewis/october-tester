@@ -51,4 +51,34 @@ trait InteractsWithOctober
                 ->within($this->getTabContentSelector() . " ${tabId}", $callback);
         });
     }
+
+    /**
+     * Execute a Closure within a relation controller.
+     *
+     * @param string  $name
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinRelationController($name, Closure $callback)
+    {
+        return $this->within($this->getRelationControllerSelector($name), $callback);
+    }
+
+    /**
+     * Execute a Closure within a relation controller component.
+     *
+     * @param string  $name
+     * @param string  $component
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinRelationControllerComponent($name, $component, Closure $callback)
+    {
+        return $this->with($this->getRelationControllerSelector($name),
+            function (Browser $controller) use ($component, $callback) {
+                $controller->within($this->getRelationControllerComponentSelector($component), $callback);
+            });
+    }
 }
