@@ -64,21 +64,4 @@ trait InteractsWithOctober
     {
         return $this->within($this->getRelationControllerSelector($name), $callback);
     }
-
-    /**
-     * Execute a Closure within a relation controller component.
-     *
-     * @param string  $name
-     * @param string  $component
-     * @param Closure $callback
-     *
-     * @return $this
-     */
-    public function withinRelationControllerComponent($name, $component, Closure $callback)
-    {
-        return $this->with($this->getRelationControllerSelector($name),
-            function (Browser $controller) use ($component, $callback) {
-                $controller->within($this->getRelationControllerComponentSelector($component), $callback);
-            });
-    }
 }

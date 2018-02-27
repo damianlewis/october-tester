@@ -185,18 +185,6 @@ trait SelectorsForOctober
     }
 
     /**
-     * Get the css selector to select a relation controller component.
-     *
-     * @param $component
-     *
-     * @return string
-     */
-    public function getRelationControllerComponentSelector($component)
-    {
-        return "[id*='RelationController'][id*='${component}']";
-    }
-
-    /**
      * Get the css selector to select the breadcrumb component.
      *
      * @return string
