@@ -5,7 +5,7 @@ namespace DamianLewis\OctoberTesting;
 use Exception;
 use Illuminate\Support\ServiceProvider;
 
-class DuskServiceProvider extends ServiceProvider
+class OctoberTestingServiceProvider extends ServiceProvider
 {
     /**
      * Register any package services.
