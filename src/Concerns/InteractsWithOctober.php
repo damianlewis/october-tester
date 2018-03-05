@@ -64,4 +64,17 @@ trait InteractsWithOctober
     {
         return $this->within($this->getRelationControllerSelector($name), $callback);
     }
+
+    /**
+     * Execute a Closure within a popup.
+     *
+     * @param string  $name
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinPopup($name, Closure $callback)
+    {
+        return $this->within($this->getPopupSelector($name), $callback);
+    }
 }

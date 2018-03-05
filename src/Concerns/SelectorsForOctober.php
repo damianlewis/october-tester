@@ -27,23 +27,27 @@ trait SelectorsForOctober
     }
 
     /**
-     * Get the css selector to select the list search component.
+     * Get the css selector to select the search component.
+     *
+     * @param $type
      *
      * @return string The css selector.
      */
-    public function getListSearchSelector()
+    public function getSearchSelector($type)
     {
-        return "input[name='" . $this->getListToolbarSearchName() . "']";
+        return "input[name='" . $this->getSearchName($type) . "']";
     }
 
     /**
-     * Get the field name for the list toolbar search component.
+     * Get the field name for the search component.
+     *
+     * @param $type
      *
      * @return string.
      */
-    public function getListToolbarSearchName()
+    public function getSearchName($type)
     {
-        return 'listToolbarSearch[term]';
+        return "${type}Search[term]";
     }
 
     /**
@@ -185,6 +189,18 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select a relation controller popup.
+     *
+     * @param $type
+     *
+     * @return string
+     */
+    public function getPopupSelector($type)
+    {
+        return "[id*='${type}Popup']";
+    }
+
+    /**
      * Get the css selector to select the breadcrumb component.
      *
      * @return string
@@ -225,11 +241,11 @@ trait SelectorsForOctober
     }
 
     /**
-     * Get the css selector to select the popup modal component.
+     * Get the css selector to select the alert component.
      *
      * @return string
      */
-    public function getPopupModalSelector()
+    public function getAlertSelector()
     {
         return '.sweet-alert';
     }
