@@ -23,9 +23,9 @@ abstract class WebDriverTestCase extends \Illuminate\Foundation\Testing\TestCase
 
         Browser::$baseUrl = $this->baseUrl();
 
-        Browser::$storeScreenshotsAt = base_path('tests/screenshots');
+        Browser::$storeScreenshotsAt = base_path('tests/Browser/screenshots');
 
-        Browser::$storeConsoleLogAt = base_path('tests/console');
+        Browser::$storeConsoleLogAt = base_path('tests/Browser/console');
 
         Browser::$userCredentialsResolver = function () {
             return $this->getUserCredentials();
