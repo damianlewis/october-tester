@@ -17,6 +17,18 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select a list widget checkbox.
+     *
+     * @param null|string $id
+     *
+     * @return string
+     */
+    public function getListCheckboxSelector($id)
+    {
+        return ".list-checkbox label[for*='checkbox-${id}']";
+    }
+
+    /**
      * Get the css selector to select the list pagination component.
      *
      * @return string The css selector.
