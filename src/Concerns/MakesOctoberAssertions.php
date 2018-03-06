@@ -2,6 +2,8 @@
 
 namespace DamianLewis\OctoberTesting\Concerns;
 
+use PHPUnit\Framework\Assert as PHPUnit;
+
 trait MakesOctoberAssertions
 {
     /**
@@ -106,5 +108,26 @@ trait MakesOctoberAssertions
         return $this->assertMissing(
             $this->getFormFieldWidgetSelector($type, $name)
         );
+    }
+
+    /**
+     * Assert that the 'readonly' attribute appears within the given selector.
+     *
+     * @param string $selector
+     *
+     * @return $this
+     */
+    public function assertReadOnly($selector)
+    {
+        $fullSelector = $this->resolver->format($selector);
+
+        $element = $this->resolver->findOrFail($selector);
+
+        PHPUnit::assertTrue(
+            !is_null($element->getAttribute('readonly')),
+            "Did not see 'readonly' attribute within element [{$fullSelector}]."
+        );
+
+        return $this;
     }
 }
