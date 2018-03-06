@@ -79,32 +79,32 @@ trait MakesOctoberAssertions
     }
 
     /**
-     * Assert that the form widget with the given type and name is visible.
+     * Assert that the form field  widget with the given type and name is visible.
      *
      * @param string $type
      * @param string $name
      *
      * @return $this
      */
-    public function assertFormWidgetVisible($type, $name)
+    public function assertFormFieldWidgetVisible($type, $name)
     {
         return $this->assertVisible(
-            $this->getFormWidgetSelector($type, $name)
+            $this->getFormFieldWidgetSelector($type, $name)
         );
     }
 
     /**
-     * Assert that the form widget with the given type and name is not on the page.
+     * Assert that the form field widget with the given type and name is not on the page.
      *
      * @param string $type
      * @param string $name
      *
      * @return $this
      */
-    public function assertFormWidgetMissing($type, $name)
+    public function assertFormFieldWidgetMissing($type, $name)
     {
         return $this->assertMissing(
-            $this->getFormWidgetSelector($type, $name)
+            $this->getFormFieldWidgetSelector($type, $name)
         );
     }
 }

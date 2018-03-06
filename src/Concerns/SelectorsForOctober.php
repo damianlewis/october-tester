@@ -151,6 +151,18 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select a form widget.
+     *
+     * @param null|string $id
+     *
+     * @return string
+     */
+    public function getFormSelector($id = null)
+    {
+        return '.form-widget' . $id ? $id : '' . "[data-control='formwidget']";
+    }
+
+    /**
      *  Get the css selector to select a form group.
      *
      * @param $name
@@ -183,7 +195,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    public function getFormWidgetSelector($type, $name)
+    public function getFormFieldWidgetSelector($type, $name)
     {
         return "[data-field-name='${name}'] [data-control='${type}']";
     }

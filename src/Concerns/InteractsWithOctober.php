@@ -21,6 +21,19 @@ trait InteractsWithOctober
     }
 
     /**
+     * Execute a Closure within a form widget.
+     *
+     * @param string  $form
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinForm($form, Closure $callback)
+    {
+        return $this->within($this->getFormSelector($form), $callback);
+    }
+
+    /**
      * Execute a Closure within a primary form tab.
      *
      * @param string  $tab
