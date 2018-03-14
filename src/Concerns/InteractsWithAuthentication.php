@@ -28,8 +28,12 @@ trait InteractsWithAuthentication
      */
     public function loginWith($userCredentials)
     {
-        if (!is_array($userCredentials)) {
-            throw new AuthException('An array containing the login and password for a user is required.');
+        if (empty($userCredentials['login'])) {
+            throw new AuthException('A [login] for a user is required.');
+        }
+
+        if (empty($userCredentials['password'])) {
+            throw new AuthException('A [password] for a user is required.');
         }
 
         return $this->visit('/backend')
