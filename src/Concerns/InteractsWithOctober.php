@@ -15,9 +15,9 @@ trait InteractsWithOctober
      *
      * @return $this
      */
-    public function withinList($list, Closure $callback)
+    public function withinListWidget($list, Closure $callback)
     {
-        return $this->within($this->getListSelector($list) . ' table', $callback);
+        return $this->within($this->getListWidgetSelector($list), $callback);
     }
 
     /**
@@ -28,9 +28,9 @@ trait InteractsWithOctober
      *
      * @return $this
      */
-    public function withinForm($form, Closure $callback)
+    public function withinFormWidget($form, Closure $callback)
     {
-        return $this->within($this->getFormSelector($form), $callback);
+        return $this->within($this->getFormWidgetSelector($form), $callback);
     }
 
     /**

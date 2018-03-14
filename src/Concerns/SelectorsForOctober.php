@@ -11,7 +11,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    public function getListSelector($id = null)
+    public function getListWidgetSelector($id = null)
     {
         return '.list-widget' . $id ? $id : '' . "[data-control='listwidget']";
     }
@@ -157,7 +157,7 @@ trait SelectorsForOctober
      *
      * @return string
      */
-    public function getFormSelector($id = null)
+    public function getFormWidgetSelector($id = null)
     {
         return '.form-widget' . $id ? $id : '' . "[data-control='formwidget']";
     }
