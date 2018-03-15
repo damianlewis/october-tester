@@ -171,7 +171,7 @@ trait SelectorsForOctober
      */
     public function getTabPaneSelector($tabId)
     {
-        return ".tab-pane#${tabId}";
+        return ".tab-pane${tabId}";
     }
 
     /**
