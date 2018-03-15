@@ -39,6 +39,16 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select the toolbar widget.
+     *
+     * @return string The css selector.
+     */
+    public function getToolbarWidgetSelector()
+    {
+        return '.toolbar-widget [data-control="toolbar"]';
+    }
+
+    /**
      * Get the css selector to select the search component.
      *
      * @param $type
@@ -233,11 +243,11 @@ trait SelectorsForOctober
      */
     public function getRelationControllerSelector($name)
     {
-        return "[id*='RelationController'][data-request-data*='${name}']";
+        return "[id*='RelationController'][id*='${name}']";
     }
 
     /**
-     * Get the css selector to select a relation controller popup.
+     * Get the css selector to select a popup.
      *
      * @param $type
      *
@@ -245,7 +255,7 @@ trait SelectorsForOctober
      */
     public function getPopupSelector($type)
     {
-        return "[id*='${type}Popup']";
+        return ".control-popup [id*='${type}Popup']";
     }
 
     /**
