@@ -141,6 +141,18 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select the navigation tabs.
+     *
+     * @param string $tab
+     *
+     * @return string
+     */
+    public function getNavigationTabSelector($tab)
+    {
+        return $this->getNavigationTabsSelector() . " a[title='${tab}']";
+    }
+
+    /**
      * Get the css selector to select the tab content.
      *
      * @return string
@@ -148,6 +160,18 @@ trait SelectorsForOctober
     public function getTabContentSelector()
     {
         return '.tab-content';
+    }
+
+    /**
+     * Get the css selector to select a tab pane.
+     *
+     * @param string $tabId
+     *
+     * @return string
+     */
+    public function getTabPaneSelector($tabId)
+    {
+        return ".tab-pane#${tabId}";
     }
 
     /**

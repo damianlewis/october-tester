@@ -58,10 +58,10 @@ trait InteractsWithOctober
     public function withinTab($type, $tab, Closure $callback)
     {
         return $this->with($type, function (Browser $tabs) use ($tab, $callback) {
-            $tabId = $tabs->attribute($this->getNavigationTabsSelector() . " a[title='${tab}']", 'data-target');
+            $tabId = $tabs->attribute($this->getNavigationTabSelector($tab), 'data-target');
 
-            $tabs->click($this->getNavigationTabsSelector() . " a[title='${tab}']")
-                ->within($this->getTabContentSelector() . " ${tabId}", $callback);
+            $tabs->click($this->getNavigationTabSelector($tab))
+                ->within($this->getTabContentSelector() . ' ' . $this->getTabPaneSelector($tabId), $callback);
         });
     }
 
