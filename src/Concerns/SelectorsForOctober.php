@@ -243,7 +243,7 @@ trait SelectorsForOctober
      */
     public function getRelationControllerSelector($name)
     {
-        return "[id*='RelationController'][id*='${name}']";
+        return "[id*='RelationController'][data-request-data*='${name}']";
     }
 
     /**
