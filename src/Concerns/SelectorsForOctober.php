@@ -19,13 +19,25 @@ trait SelectorsForOctober
     /**
      * Get the css selector to select a list widget checkbox.
      *
-     * @param null|string $id
+     * @param null|string $value
      *
      * @return string
      */
-    public function getListCheckboxSelector($id)
+    public function getListCheckboxSelector($value = null)
     {
-        return ".list-checkbox label[for*='checkbox-${id}']";
+        return ".list-checkbox input[type='checkbox']" . $value ? "[id*='checkbox-${$value}']" : '';
+    }
+
+    /**
+     * Get the css selector to select a list widget checkbox label.
+     *
+     * @param null|string $value
+     *
+     * @return string
+     */
+    public function getListCheckboxLabelSelector($value = null)
+    {
+        return ".list-checkbox label[for*='checkbox']" . $value ? "[for*='checkbox-${$value}']" : '';
     }
 
     /**

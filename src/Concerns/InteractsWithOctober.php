@@ -2,92 +2,45 @@
 
 namespace DamianLewis\OctoberTesting\Concerns;
 
-use Closure;
-use DamianLewis\OctoberTesting\Browser;
-
 trait InteractsWithOctober
 {
     /**
-     * Execute a Closure within a list widget.
+     * Click the given list row.
      *
-     * @param string  $list
-     * @param Closure $callback
+     * @param string $row
      *
      * @return $this
      */
-    public function withinListWidget($list, Closure $callback)
+    public function clickListRow($row)
     {
-        return $this->within($this->getListWidgetSelector($list), $callback);
+        $this->resolver->findOrFail("table tbody tr:nth-child(${row})")->click();
+
+        return $this;
     }
 
     /**
-     * Execute a Closure within a form widget.
+     * Click the checkbox at the given list row.
      *
-     * @param string  $form
-     * @param Closure $callback
+     * @param string $row
      *
      * @return $this
      */
-    public function withinFormWidget($form, Closure $callback)
+    public function clickListCheckbox($row)
     {
-        return $this->within($this->getFormWidgetSelector($form), $callback);
+        $this->resolver->findOrFail("table tbody tr:nth-child(${row}) " . $this->getListCheckboxLabelSelector())->click();
+
+        return $this;
     }
 
     /**
-     * Execute a Closure within a primary form tab.
+     * Directly get the value attribute of a checkbox input field at the given list row.
      *
-     * @param string  $tab
-     * @param Closure $callback
+     * @param string $row
      *
-     * @return $this
+     * @return string
      */
-    public function withinPrimaryTab($tab, Closure $callback)
+    public function valueOfListCheckbox($row)
     {
-        return $this->withinTab($this->getPrimaryTabsSelector(), $tab, $callback);
-    }
-
-    /**
-     * Execute a Closure within a form tab.
-     *
-     * @param string  $type
-     * @param string  $tab
-     * @param Closure $callback
-     *
-     * @return $this
-     */
-    public function withinTab($type, $tab, Closure $callback)
-    {
-        return $this->with($type, function (Browser $tabs) use ($tab, $callback) {
-            $tabId = $tabs->attribute($this->getNavigationTabSelector($tab), 'data-target');
-
-            $tabs->click($this->getNavigationTabSelector($tab))
-                ->within($this->getTabContentSelector() . ' ' . $this->getTabPaneSelector($tabId), $callback);
-        });
-    }
-
-    /**
-     * Execute a Closure within a relation controller.
-     *
-     * @param string  $name
-     * @param Closure $callback
-     *
-     * @return $this
-     */
-    public function withinRelationController($name, Closure $callback)
-    {
-        return $this->within($this->getRelationControllerSelector($name), $callback);
-    }
-
-    /**
-     * Execute a Closure within a popup.
-     *
-     * @param string  $name
-     * @param Closure $callback
-     *
-     * @return $this
-     */
-    public function withinPopup($name, Closure $callback)
-    {
-        return $this->within($this->getPopupSelector($name), $callback);
+        return $this->resolver->findOrFail("table tbody tr:nth-child(${row}) " . $this->getListCheckboxSelector())->getAttribute('value');
     }
 }
