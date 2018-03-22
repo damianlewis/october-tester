@@ -18,6 +18,7 @@ class Browser
     use Concerns\MakesOctoberAssertions;
     use Concerns\SelectorsForOctober;
     use Concerns\WaitsForElements;
+    use Concerns\WaitsForOctoberElements;
 
     /**
      * The base URL for all URLs.
