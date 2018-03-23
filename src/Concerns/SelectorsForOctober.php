@@ -25,7 +25,7 @@ trait SelectorsForOctober
      */
     public function getListCheckboxSelector($value = null)
     {
-        return ".list-checkbox input[type='checkbox']" . $value ? "[id*='checkbox-${$value}']" : '';
+        return ".list-checkbox input[type='checkbox']" . $value ? "[id*='checkbox-${value}']" : '';
     }
 
     /**
@@ -37,7 +37,7 @@ trait SelectorsForOctober
      */
     public function getListCheckboxLabelSelector($value = null)
     {
-        return ".list-checkbox label[for*='checkbox']" . $value ? "[for*='checkbox-${$value}']" : '';
+        return ".list-checkbox label[for*='checkbox']" . $value ? "[for*='checkbox-${value}']" : '';
     }
 
     /**

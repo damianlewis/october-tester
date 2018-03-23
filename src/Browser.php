@@ -14,11 +14,11 @@ class Browser
     use Concerns\InteractsWithCookies;
     use Concerns\InteractsWithElements;
     use Concerns\MakesAssertions;
-    use Concerns\SelectorsForOctober;
     use Concerns\WaitsForElements;
     use Concerns\InteractsWithOctober;
-    use Concerns\WaitsForOctoberElements;
     use Concerns\MakesOctoberAssertions;
+    use Concerns\SelectorsForOctober;
+    use Concerns\WaitsForOctoberElements;
 
     /**
      * The base URL for all URLs.
