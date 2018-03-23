@@ -267,7 +267,7 @@ trait SelectorsForOctober
      */
     public function getPopupSelector($type)
     {
-        return ".control-popup [id*='${type}Popup']";
+        return ".control-popup [id*='${type}'][id*='Popup']";
     }
 
     /**
