@@ -7,12 +7,12 @@ use Exception;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
+use Laravel\Dusk\Concerns\ProvidesBrowser;
 use Symfony\Component\Finder\Finder;
-
 
 abstract class WebDriverTestCase extends FoundationTestCase
 {
-    use Concerns\ProvidesBrowser;
+    use ProvidesBrowser;
 
     /**
      * Register the base URL and create a browser instance.
