@@ -1,6 +1,6 @@
 {
-    "name": "damianlewis/octobertesting",
-    "description": "October Testing provides test cases for working with PHP Unit and Laravel Dusk.",
+    "name": "damianlewis/octobertester",
+    "description": "Testing API and browser automation for OctoberCMS.",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DamianLewis\\OctoberTesting\\": "src/"
+            "DamianLewis\\OctoberTester\\": "src/"
         }
     }
 }
