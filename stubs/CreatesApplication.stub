@@ -2,7 +2,6 @@
 
 trait CreatesApplication
 {
-
     /**
      * Creates the application.
      *
@@ -23,5 +22,4 @@ trait CreatesApplication
 
         return $app;
     }
-
 }

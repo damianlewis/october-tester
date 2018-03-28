@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting\Concerns;
+namespace DamianLewis\OctoberTesting\Tasks;
 
 use Dotenv\Dotenv;
 

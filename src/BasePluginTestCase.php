@@ -2,14 +2,16 @@
 
 namespace DamianLewis\OctoberTesting;
 
+use DamianLewis\OctoberTesting\Database\RefreshOctoberDatabase;
+use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
 use Mail;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
-abstract class BasePluginTestCase extends \Illuminate\Foundation\Testing\TestCase
+abstract class BasePluginTestCase extends FoundationTestCase
 {
-    use Concerns\OctoberTasks;
-    use Concerns\EnvTasks;
+    use DamianLewis\OctoberTesting\Tasks\OctoberTasks,
+        DamianLewis\OctoberTesting\Tasks\EnvTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.
