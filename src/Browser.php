@@ -7,7 +7,8 @@ use Laravel\Dusk\Browser as BaseBrowser;
 
 class Browser extends BaseBrowser
 {
-    use Concerns\InteractsWithOctober,
+    use Concerns\InteractsWithAuthentication,
+        Concerns\InteractsWithOctober,
         Concerns\MakesOctoberAssertions,
         Concerns\SelectorsForOctober,
         Concerns\WaitsForOctoberElements;

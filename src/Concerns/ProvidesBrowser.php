@@ -6,7 +6,7 @@ use DamianLewis\OctoberTester\Browser;
 
 trait ProvidesBrowser
 {
-    use Laravel\Dusk\Concerns\ProvidesBrowser;
+    use \Laravel\Dusk\Concerns\ProvidesBrowser;
 
     /**
      * Create a new Browser instance.
