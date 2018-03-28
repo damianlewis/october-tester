@@ -3,8 +3,9 @@
 namespace DamianLewis\OctoberTester;
 
 use Closure;
+use Laravel\Dusk\Browser as BaseBrowser;
 
-class Browser extends \Laravel\Dusk\Browser
+class Browser extends BaseBrowser
 {
     use Concerns\InteractsWithOctober,
         Concerns\MakesOctoberAssertions,
