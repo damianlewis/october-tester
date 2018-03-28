@@ -45,9 +45,11 @@ trait InteractsWithAuthentication
     /**
      * Log out of the application.
      *
+     * @param string $guard
+     *
      * @return $this
      */
-    public function logout()
+    public function logout($guard = null)
     {
         return $this->visit('/backend/auth/signout');
     }
