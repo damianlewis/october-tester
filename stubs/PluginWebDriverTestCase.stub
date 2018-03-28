@@ -1,11 +1,11 @@
 <?php
 
-use DamianLewis\OctoberTester\BasePluginWebDriverTestCase as PluginTestCase
+use DamianLewis\OctoberTester\BasePluginWebDriverTestCase;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 
-abstract class PluginWebDriverTestCase extends PluginTestCase
+abstract class PluginWebDriverTestCase extends BasePluginWebDriverTestCase
 {
     use CreatesApplication;
 

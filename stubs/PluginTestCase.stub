@@ -1,8 +1,8 @@
 <?php
 
-use DamianLewis\OctoberTester\BasePluginTestCase as PluginTestCase
+use DamianLewis\OctoberTester\BasePluginTestCase;
 
-abstract class PluginTestCase extends PluginTestCase
+abstract class PluginTestCase extends BasePluginTestCase
 {
     use CreatesApplication;
 }
