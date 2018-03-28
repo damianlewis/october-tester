@@ -1,6 +1,6 @@
 <?php
 
-use DamianLewis\OctoberTesting\BasePluginTestCase as PluginTestCase
+use DamianLewis\OctoberTester\BasePluginTestCase as PluginTestCase
 
 abstract class PluginTestCase extends PluginTestCase
 {

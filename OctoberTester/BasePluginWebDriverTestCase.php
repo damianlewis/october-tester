@@ -1,16 +1,16 @@
 <?php
 
-namespace DamianLewis\OctoberTesting;
+namespace DamianLewis\OctoberTester;
 
-use DamianLewis\OctoberTesting\Database\RefreshOctoberDatabase;
+use DamianLewis\OctoberTester\Database\RefreshOctoberDatabase;
 use Mail;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
 abstract class BasePluginWebDriverTestCase extends WebDriverTestCase
 {
-    use DamianLewis\OctoberTesting\Tasks\OctoberTasks,
-        DamianLewis\OctoberTesting\Tasks\EnvTasks;
+    use Tasks\OctoberTasks,
+        Tasks\EnvTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.

@@ -1,11 +1,11 @@
 <?php
 
-namespace DamianLewis\OctoberTesting;
+namespace DamianLewis\OctoberTester;
 
 use Exception;
 use Illuminate\Support\ServiceProvider;
 
-class OctoberTestingServiceProvider extends ServiceProvider
+class OctoberTesterServiceProvider extends ServiceProvider
 {
     /**
      * Register any package services.
@@ -16,7 +16,7 @@ class OctoberTestingServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->environment('production')) {
-            throw new Exception('It is unsafe to run October Tesing in production.');
+            throw new Exception('It is unsafe to run OctoberTester in production.');
         }
 
         if ($this->app->runningInConsole()) {

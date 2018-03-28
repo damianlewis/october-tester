@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting;
+namespace DamianLewis\OctoberTester;
 
 use BackendAuth;
 use Exception;

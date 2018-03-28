@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting\Concerns;
+namespace DamianLewis\OctoberTester\Concerns;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 

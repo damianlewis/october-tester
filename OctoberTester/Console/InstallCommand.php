@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTesting\Console;
+namespace DamianLewis\OctoberTester\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'octobertesting:install';
+    protected $signature = 'octobertester:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install October Testing into the application';
+    protected $description = 'Install OctoberTester into the application';
 
     /**
      * Create a new command instance.
@@ -58,7 +58,7 @@ class InstallCommand extends Command
             }
         }
 
-        $this->info('October Testing scaffolding installed successfully.');
+        $this->info('OctoberTesterscaffolding installed successfully.');
     }
 
     /**
