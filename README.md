@@ -4,7 +4,7 @@ OctoberTester is a testing API and browser automation for testing applications b
 
 ## Installation
 
-Once OctoberTester is installed, you should register the `DamianLewis\OctoberTester\OctoberTesterServiceProvider` service provider and run the `octobertester:install` Artisan command.
+Add the `damianlewis/OctoberTester` Composer dependency to your project as a development requirement. Once installed, you should register the `DamianLewis\OctoberTester\OctoberTesterServiceProvider` service provider and run the `octobertester:install` Artisan command.
 ```bash
 php artisan octobertester:install
 ```
