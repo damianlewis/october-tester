@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use DamianLewis\OctoberTester\Dusk\DuskTestCase;
 
 abstract class UiTestCase extends DuskTestCase

@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use DamianLewis\OctoberTester\October\OctoberTestCase;
 
 abstract class TestCase extends OctoberTestCase
