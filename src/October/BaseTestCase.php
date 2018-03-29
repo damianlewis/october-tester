@@ -1,19 +1,43 @@
 <?php
+//MIT License
+//
+//Copyright (c) OctoberCMS
+//
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+//
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
 
-namespace DamianLewis\OctoberTester;
+namespace DamianLewis\OctoberTester\October;
 
-use Artisan;
-use Dotenv\Dotenv;
-use Exception;
-use Mail;
-use ReflectionClass;
-use System\Classes\PluginManager;
-use System\Classes\UpdateManager;
+//use Artisan;
+//use Exception;
+//use Mail;
+//use ReflectionClass;
+use DamianLewis\OctoberTester\Dusk\Tasks;
+use DamianLewis\OctoberTester\RefreshOctoberDatabase;
 use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
 use October\Rain\Database\Model as ActiveRecord;
+use System\Classes\PluginManager;
+use System\Classes\UpdateManager;
 
-abstract class OctoberTestCase extends FoundationTestCase
+class BaseTestCase extends FoundationTestCase
 {
+    use Tasks;
+
     /**
      * Cache for storing which plugins have been loaded and refreshed.
      *
@@ -74,27 +98,6 @@ abstract class OctoberTestCase extends FoundationTestCase
     }
 
     /**
-     * Creates the application.
-     *
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__ . '/../bootstrap/app.php';
-        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
-
-        $app['cache']->setDefaultDriver('array');
-        $app->setLocale('en');
-
-        /*
-         * Modify the plugin path away from the test context
-         */
-        $app->setPluginsPath(realpath(base_path() . config('cms.pluginsPath')));
-
-        return $app;
-    }
-
-    /**
      * Flush event listeners and collect garbage.
      *
      * @return void
@@ -113,7 +116,6 @@ abstract class OctoberTestCase extends FoundationTestCase
             $this->restoreEnvironment();
         }
     }
-
     /**
      * Boot the testing helper traits.
      *
@@ -268,49 +270,5 @@ abstract class OctoberTestCase extends FoundationTestCase
         }
 
         return $result;
-    }
-
-    /**
-     * Backup the current environment file and switch to the testing environment.
-     *
-     * @return void
-     */
-    protected function switchEnvironment()
-    {
-        copy(base_path('.env'), base_path('.env.backup'));
-
-        copy(base_path($this->envTestingFile()), base_path('.env'));
-    }
-
-    /**
-     * Restore the backed-up environment file.
-     *
-     * @return void
-     */
-    protected function restoreEnvironment()
-    {
-        copy(base_path('.env.backup'), base_path('.env'));
-
-        unlink(base_path('.env.backup'));
-    }
-
-    /**
-     * Refresh the current environment variables.
-     *
-     * @return void
-     */
-    protected function refreshEnvironment()
-    {
-        (new Dotenv(base_path()))->overload();
-    }
-
-    /**
-     * Get the name of the testing file for the environment.
-     *
-     * @return string
-     */
-    protected function envTestingFile()
-    {
-        return '.env.testing';
     }
 }

@@ -11,8 +11,9 @@ trait ProvidesBrowser
     /**
      * Create a new Browser instance.
      *
-     * @param  \Facebook\WebDriver\Remote\RemoteWebDriver  $driver
-     * @return \Laravel\Dusk\Browser
+     * @param  \Facebook\WebDriver\Remote\RemoteWebDriver $driver
+     *
+     * @return \DamianLewis\OctoberTester\Browser
      */
     protected function newBrowser($driver)
     {
