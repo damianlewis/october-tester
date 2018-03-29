@@ -24,6 +24,7 @@
 namespace DamianLewis\OctoberTester\October;
 
 use Artisan;
+use DamianLewis\OctoberTester\Concerns\EnvironmentTasks;
 use Exception;
 use Mail;
 use ReflectionClass;
@@ -35,7 +36,7 @@ use System\Classes\UpdateManager;
 
 abstract class OctoberTestCase extends FoundationTestCase
 {
-    use Concerns\EnvironmentTasks;
+    use EnvironmentTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.
@@ -115,6 +116,7 @@ abstract class OctoberTestCase extends FoundationTestCase
             $this->restoreEnvironment();
         }
     }
+
     /**
      * Boot the testing helper traits.
      *
