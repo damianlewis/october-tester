@@ -1,8 +1,8 @@
 <?php
 
-use DamianLewis\OctoberTester\Dusk\BaseTestCase;
+use DamianLewis\OctoberTester\Dusk\DuskTestCase;
 
-abstract class UiTestCase extends BaseTestCase
+abstract class UiTestCase extends DuskTestCase
 {
     use CreatesApplication;
 

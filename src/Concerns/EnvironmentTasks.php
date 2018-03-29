@@ -21,11 +21,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-namespace DamianLewis\OctoberTester\Dusk;
+namespace DamianLewis\OctoberTester\Concerns;
 
 use Dotenv\Dotenv;
 
-trait Tasks
+trait EnvironmentTasks
 {
     /**
      * Backup the current environment file and switch to the testing environment.

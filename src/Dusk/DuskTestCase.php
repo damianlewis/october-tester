@@ -26,14 +26,14 @@ namespace DamianLewis\OctoberTester\Dusk;
 use BackendAuth;
 use DamianLewis\OctoberTester\Browser;
 use DamianLewis\OctoberTester\Concerns;
-use DamianLewis\OctoberTester\October\BaseTestCase as OctoberBaseTestCase;
+use DamianLewis\OctoberTester\October\OctoberTestCase;
 use Exception;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Symfony\Component\Finder\Finder;
 
-abstract class BaseTestCase extends OctoberBaseTestCase
+abstract class DuskTestCase extends OctoberTestCase
 {
     use Concerns\ProvidesBrowser;
 

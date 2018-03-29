@@ -23,20 +23,19 @@
 
 namespace DamianLewis\OctoberTester\October;
 
-//use Artisan;
-//use Exception;
-//use Mail;
-//use ReflectionClass;
-use DamianLewis\OctoberTester\Dusk\Tasks;
+use Artisan;
+use Exception;
+use Mail;
+use ReflectionClass;
 use DamianLewis\OctoberTester\RefreshOctoberDatabase;
 use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
 use October\Rain\Database\Model as ActiveRecord;
 use System\Classes\PluginManager;
 use System\Classes\UpdateManager;
 
-class BaseTestCase extends FoundationTestCase
+abstract class OctoberTestCase extends FoundationTestCase
 {
-    use Tasks;
+    use Concerns\EnvironmentTasks;
 
     /**
      * Cache for storing which plugins have been loaded and refreshed.
