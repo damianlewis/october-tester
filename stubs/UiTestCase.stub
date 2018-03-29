@@ -4,6 +4,8 @@ use DamianLewis\OctoberTester\OctoberUiTestCase;
 
 abstract class UiTestCase extends OctoberUiTestCase
 {
+    use CreatesApplication;
+
     /**
      * Get a callback that returns the default 'administrator' user credentials to authenticate.
      *

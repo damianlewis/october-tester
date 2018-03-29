@@ -46,9 +46,10 @@ class InstallCommand extends Command
         }
 
         $stubs = [
-            'webdriver.stub'  => base_path('config/webdriver.php'),
-            'TestCase.stub'   => base_path('tests/TestCase.php'),
-            'UiTestCase.stub' => base_path('tests/UiTestCase.php')
+            'webdriver.stub'          => base_path('config/webdriver.php'),
+            'CreatesApplication.stub' => base_path('tests/CreatesApplication.php'),
+            'TestCase.stub'           => base_path('tests/TestCase.php'),
+            'UiTestCase.stub'         => base_path('tests/UiTestCase.php')
         ];
 
         foreach ($stubs as $stub => $file) {
