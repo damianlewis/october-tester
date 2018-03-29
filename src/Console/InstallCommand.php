@@ -46,10 +46,9 @@ class InstallCommand extends Command
         }
 
         $stubs = [
-            'webdriver.stub'               => base_path('config/webdriver.php'),
-            'CreatesApplication.stub'      => base_path('tests/CreatesApplication.php'),
-            'PluginTestCase.stub'          => base_path('tests/PluginTestCase.php'),
-            'PluginWebDriverTestCase.stub' => base_path('tests/PluginWebDriverTestCase.php')
+            'webdriver.stub'  => base_path('config/webdriver.php'),
+            'TestCase.stub'   => base_path('tests/TestCase.php'),
+            'UiTestCase.stub' => base_path('tests/UiTestCase.php')
         ];
 
         foreach ($stubs as $stub => $file) {
@@ -58,7 +57,7 @@ class InstallCommand extends Command
             }
         }
 
-        $this->info('OctoberTesterscaffolding installed successfully.');
+        $this->info('OctoberTester scaffolding installed successfully.');
     }
 
     /**
