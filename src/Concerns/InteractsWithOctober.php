@@ -31,4 +31,18 @@ trait InteractsWithOctober
 
         return $this;
     }
+
+    /**
+     * Click the filter widget with the given name.
+     *
+     * @param string $name
+     *
+     * @return $this
+     */
+    public function clickListFilter($name)
+    {
+        $this->resolver->findOrFail($this->getFilterSelector($name))->click();
+
+        return $this;
+    }
 }
