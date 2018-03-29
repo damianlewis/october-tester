@@ -1,6 +1,6 @@
 <?php
 
-namespace DamianLewis\OctoberTester\Database;
+namespace DamianLewis\OctoberTester;
 
 use Db;
 use Illuminate\Contracts\Console\Kernel;

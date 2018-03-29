@@ -4,12 +4,12 @@ namespace DamianLewis\OctoberTester;
 
 use BackendAuth;
 use Exception;
+use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
 use Symfony\Component\Finder\Finder;
 
-abstract class WebDriverTestCase extends FoundationTestCase
+abstract class OctoberUiTestCase extends OctoberTestCase
 {
     use Concerns\ProvidesBrowser;
 
@@ -43,8 +43,11 @@ abstract class WebDriverTestCase extends FoundationTestCase
      */
     protected function driver()
     {
+        $options = (new ChromeOptions())->addArguments(config('webdriver.chromeOptions'));
+
         return RemoteWebDriver::create(
-            'http://localhost:9515', DesiredCapabilities::chrome()
+            config('webdriver.host'),
+            DesiredCapabilities::chrome()->setCapability(ChromeOptions::CAPABILITY, $options)
         );
     }
 
@@ -100,5 +103,4 @@ abstract class WebDriverTestCase extends FoundationTestCase
             @unlink($file->getRealPath());
         }
     }
-
 }

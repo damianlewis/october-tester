@@ -1,0 +1,7 @@
+<?php
+
+use DamianLewis\OctoberTester\OctoberTestCase;
+
+abstract class TestCase extends OctoberTestCase
+{
+}

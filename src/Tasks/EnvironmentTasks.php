@@ -4,7 +4,7 @@ namespace DamianLewis\OctoberTester\Tasks;
 
 use Dotenv\Dotenv;
 
-trait EnvTasks
+trait EnvironmentTasks
 {
     /**
      * Backup the current environment file and switch to the testing environment.

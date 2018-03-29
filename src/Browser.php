@@ -21,40 +21,6 @@ class Browser extends BaseBrowser
     public static $userCredentialsResolver;
 
     /**
-     * Create a browser instance.
-     *
-     * @param  \Facebook\WebDriver\Remote\RemoteWebDriver $driver
-     * @param  ElementResolver                            $resolver
-     *
-     * @return void
-     */
-//    public function __construct($driver, $resolver = null)
-//    {
-//        $this->driver = $driver;
-//
-//        $this->resolver = $resolver ?: new ElementResolver($driver);
-//
-//    }
-
-    /**
-     * Browse to the given URL.
-     *
-     * @param  string $url
-     *
-     * @return $this
-     */
-//    public function visit($url)
-//    {
-//        if (!Str::startsWith($url, ['http://', 'https://'])) {
-//            $url = static::$baseUrl . '/' . ltrim($url, '/');
-//        }
-//
-//        $this->driver->navigate()->to($url);
-//
-//        return $this;
-//    }
-
-    /**
      * Execute a Closure within a list widget.
      *
      * @param string  $list
@@ -137,23 +103,4 @@ class Browser extends BaseBrowser
     {
         return $this->with($this->getPopupSelector($name), $callback);
     }
-
-    /**
-     * Execute a Closure with a scoped browser instance.
-     *
-     * @param  string   $selector
-     * @param  \Closure $callback
-     *
-     * @return $this
-     */
-//    public function with($selector, Closure $callback)
-//    {
-//        $browser = new static(
-//            $this->driver, new ElementResolver($this->driver, $this->resolver->format($selector))
-//        );
-//
-//        call_user_func($callback, $browser);
-//
-//        return $this;
-//    }
 }
