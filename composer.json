@@ -1,7 +1,7 @@
 {
-    "name": "damianlewis/octobertester",
+    "name": "damianlewis/october-tester",
     "description": "Testing API and browser automation for OctoberCMS.",
-    "keywords": ["octobercms", "testing", "webdriver"],
+    "keywords": ["octobercms", "testing", "webdriver", "laravel-dusk", "laravel-testing"],
     "license": "MIT",
     "authors": [
         {

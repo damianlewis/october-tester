@@ -1,6 +1,6 @@
 ## Introduction
 
-OctoberTester is a testing API and browser automation for testing applications built with OctoberCMS. It makes use of both the [Laravel HTTP Testing](https://laravel.com/docs/5.5/http-tests) API and the [Laravel Dusk](https://github.com/laravel/dusk) API along with the Selenium WebDriver bindings for PHP. It requires Selenium to be installed on the testing machine.
+October Tester is a testing API and browser automation for testing applications built with OctoberCMS. It makes use of both the [Laravel HTTP Testing](https://laravel.com/docs/5.5/http-tests) API and the [Laravel Dusk](https://github.com/laravel/dusk) API along with the Selenium WebDriver bindings for PHP. It requires Selenium to be installed on the testing machine.
 
 ## Installation
 
