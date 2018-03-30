@@ -4,9 +4,9 @@ October Tester is a testing API and browser automation for testing applications 
 
 ## Installation
 
-Add the `damianlewis/OctoberTester` Composer dependency to your project as a development requirement. 
+Add the October Tester dependency to your project as a Composer development requirement. 
 ```bash
-composer require --dev damianlewis/octobertester
+composer require --dev damianlewis/october-tester
 ```
 
 Once installed, you should register the `DamianLewis\OctoberTester\OctoberTesterServiceProvider` service provider and run the `octobertester:install` Artisan command.
