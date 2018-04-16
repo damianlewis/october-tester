@@ -47,7 +47,7 @@ class Browser extends BaseBrowser
     }
 
     /**
-     * Execute a Closure within a primary form tab.
+     * Execute a Closure within a primary tab.
      *
      * @param string  $tab
      * @param Closure $callback
@@ -57,6 +57,19 @@ class Browser extends BaseBrowser
     public function withinPrimaryTab($tab, Closure $callback)
     {
         return $this->withinTab($this->getPrimaryTabsSelector(), $tab, $callback);
+    }
+
+    /**
+     * Execute a Closure within a content tab.
+     *
+     * @param string  $tab
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinContentTab($tab, Closure $callback)
+    {
+        return $this->withinTab($this->getContentTabsSelector(), $tab, $callback);
     }
 
     /**

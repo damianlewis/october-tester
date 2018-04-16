@@ -153,6 +153,16 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select the content tab.
+     *
+     * @return string
+     */
+    public function getContentTabsSelector()
+    {
+        return '.content-tabs';
+    }
+
+    /**
      * Get the css selector to select the navigation tabs.
      *
      * @return string
