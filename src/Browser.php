@@ -47,6 +47,19 @@ class Browser extends BaseBrowser
     }
 
     /**
+     * Execute a Closure within a master tab.
+     *
+     * @param string  $tab
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinMasterTab($tab, Closure $callback)
+    {
+        return $this->withinTab($this->getMasterTabsSelector(), $tab, $callback);
+    }
+
+    /**
      * Execute a Closure within a primary tab.
      *
      * @param string  $tab
@@ -57,6 +70,19 @@ class Browser extends BaseBrowser
     public function withinPrimaryTab($tab, Closure $callback)
     {
         return $this->withinTab($this->getPrimaryTabsSelector(), $tab, $callback);
+    }
+
+    /**
+     * Execute a Closure within a secondary tab.
+     *
+     * @param string  $tab
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withinSecondaryTab($tab, Closure $callback)
+    {
+        return $this->withinTab($this->getSecondaryTabsSelector(), $tab, $callback);
     }
 
     /**

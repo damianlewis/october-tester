@@ -143,6 +143,16 @@ trait SelectorsForOctober
     }
 
     /**
+     * Get the css selector to select the master tab.
+     *
+     * @return string
+     */
+    public function getMasterTabsSelector()
+    {
+        return '.master-tabs';
+    }
+
+    /**
      * Get the css selector to select the primary tab.
      *
      * @return string
@@ -150,6 +160,16 @@ trait SelectorsForOctober
     public function getPrimaryTabsSelector()
     {
         return '.primary-tabs';
+    }
+
+    /**
+     * Get the css selector to select the secondary tab.
+     *
+     * @return string
+     */
+    public function getSecondaryTabsSelector()
+    {
+        return '.secondary-tabs';
     }
 
     /**
