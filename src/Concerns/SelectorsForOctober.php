@@ -273,7 +273,28 @@ trait SelectorsForOctober
      */
     public function getFormFieldWidgetSelector($type, $name)
     {
-        return "[data-field-name='${name}'] [data-control='${type}']";
+        switch ($type) {
+            case 'datatable':
+            case 'richeditor':
+                $selector = "[data-field-name='${name}'] .field-${type}";
+                break;
+            case 'markdown':
+                $selector = "[data-field-name='${name}'] [data-control='${type}editor']";
+                break;
+            case 'relation':
+                $selector = "[data-field-name='${name}'] .${type}-widget";
+                break;
+            case 'repeater':
+                $selector = "[data-field-name='${name}'] [data-control='field${type}']";
+                break;
+            case 'taglist':
+                $selector = "[data-field-name='${name}'] .form-control.custom-select.select-hide-selected";
+                break;
+            default:
+                $selector = "[data-field-name='${name}'] [data-control='${type}']";
+        }
+
+        return $selector;
     }
 
     /**
