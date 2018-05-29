@@ -275,8 +275,7 @@ trait SelectorsForOctober
     {
         switch ($type) {
             case 'datatable':
-            case 'richeditor':
-                $selector = "[data-field-name='${name}'] .field-${type}";
+                $selector = "[data-field-name='${name}'] [data-control='table']";
                 break;
             case 'markdown':
                 $selector = "[data-field-name='${name}'] [data-control='${type}editor']";
